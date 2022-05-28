@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reservation</title>
+    <script>
+       var mob = /\d{10}/;
+        function Book()
+        {
+            if(mob.test(document.form3.mobile.value)){
+            var Fullname = document.getElementById("cfname").value + " " + document.getElementById("cmname").value + " " + document.getElementById("clname").value;
+            var pclass = document.form3.class.value;
+            var dep = document.form3.ddate.value;
+            var ret = document.form3.rdate.value;
+            if(ret == null)
+            {
+                ret = "null";
+            }
+            var w = window.open("","ticket","width=600 height=500");
+            w.document.write("<html>");
+            w.document.write("<head>");
+            w.document.write("<title>Ticket</title>");
+            w.document.write("</head>");
+            w.document.write("<body >");
+            w.document.write("<h2>Air Ticket                       Boarding Pass</h2>");
+            w.document.write("<hr>");
+            w.document.write("<h3>Name of Passenger: " + Fullname +"<br><br><br>Gender " + document.form3.gender.value+ "<br><br>");
+            w.document.write("Class: " + pclass + "\t  Flight: "+ document.form3.ftype.value + "\t Seat S" + document.form3.st.value + "<br><br><br>");
+            w.document.write("From  " + document.form3.from.value + "   ");
+            w.document.write("To " + document.form3.to.value + "<br><br><br>");
+            w.document.write("Departure " + dep+ "            ");
+            w.document.write("Return " + ret+ "</h3>" );
+            
+
+            w.document.write("</body>");
+            w.document.write("</html>");
+        }
+        else{
+            alert("Enter valid mobile no")
+        }
+           
+        }
+    </script>
+</head>
+<body background ="wc1.jpg" onreset="parent.close();">
+    <form name="form3" action="" method="POST">
+    <font color="white">    <marquee><h1>AIRLINE RESERVATION</h1></marquee></font>
+    <br>
+   <center> <h2>Enter Customer Details</h2> </center>
+   <b>
+    First Name:  <input type="text" id="cfname"> &nbsp;&nbsp;&nbsp;&nbsp;
+    Middle Name: <input type="text" id="cmname"> &nbsp;&nbsp;&nbsp;&nbsp;
+    Last Name:   <input type="text" id="clname"> &nbsp;&nbsp;&nbsp;&nbsp;
+    <br><br>
+    Address :    <textarea id="address" rows="4" cols="25" required> </textarea>
+    <br><br>
+    Gender &nbsp; <input type="radio" name="gender" value="male"> Male &nbsp;&nbsp;
+    &nbsp; <input type="radio" name="gender" value="female"> Female &nbsp;&nbsp;
+    &nbsp; <input type="radio" name="gender" value="others"> Others 
+    <br><br><br>
+    Mobile No.    <input type="text" id="mobile" placeholder="10 Digit Mobile No">
+    <center> <h4>Enter Travel Details</h4> </center>
+   <center> From <select id="from">
+        <option>_____Select City_________</option>
+        <option value="delhi">Delhi</option>
+        <option value="Mumbai">Mumbai</option>
+        <option value="Pune">Pune</option>
+        <option value="Goa">Goa</option>
+        <option value="hyderabad">Hyderabad</option>
+        <option value="banglore">Banglore</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Assam">Assam</option>
+        <option value="Kashmir">Kashmir</option>
+        <option value="Pushkar">Pushkar</option>
+        <option value="Jaipur">Jaipur</option>
+        </select> &nbsp;&nbsp;&nbsp;&nbsp;
+    TO <select id="to">
+            <option>_____Select City_________</option>
+            <option value="delhi">Delhi</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Pune">Pune</option>
+            <option value="Goa">Goa</option>
+            <option value="hyderabad">Hyderabad</option>
+            <option value="banglore">Banglore</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Assam">Assam</option>
+            <option value="Kashmir">Kashmir</option>
+            <option value="Pushkar">Pushkar</option>
+            <option value="Jaipur">Jaipur</option>
+            </select>
+    </center><br><br><br>
+    Departure Date <input type="date"  id="ddate" required> &nbsp;&nbsp;&nbsp;&nbsp;
+    Return Date    <input type="date" id="rdate"> <br><br><br>
+    No. of Persons <input type="text" id="nop" placeholder="ex.2" required> &nbsp;&nbsp;&nbsp;&nbsp;
+    Class: <select id="class">
+        <option>____Select Class_____</option>
+        <option value="Economy">Economy</option>
+        <option value="Buisness">Buisness</option>
+        <option value="First Class">First Class</option>
+        <option value="Second Class">Second Class</option>
+    </select><br><br><br>
+    Flight Type <select id="ftype">
+        <option>Select Filght Type</option>
+        <option value="Regular">Regular</option>
+        <option value="Spice Jet">Spice Jet</option>
+    </select> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Seat : <input type="text" id="st"><br><br><br><br>
+
+    <center><input type="button" value="Book" onclick="Book()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="Cancel"/></center>
+    </b>
+</form>
+</body>
+</html>

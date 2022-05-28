@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Airlines Reservation System</title>
+    <script>
+       var un = new Array("Admin","user");
+       var pw = new Array("Admin","user");
+       var slidesh = new Array("WelcomePlane.jpg","wc1.jpg","wc2.jpg","wc3.jpg","wc4.jpg","wc5.jpg");
+       count = 0;
+       function SlideShow()
+       {
+           if(document.images)
+           {
+               count++;
+               if(count == slidesh.length-1)
+               {
+                   count = 0;
+               }
+               document.getElementById("ss").src=slidesh[count];;
+               setTimeout("SlideShow()",5000);
+           }
+       }
+        function Login()
+        {
+            var u = document.getElementById("uname").value;
+            var p = document.getElementById("pass").value;
+            for(var i = 0; i <= un.length ; i++)
+            {
+                if ( u == un[i] && p == pw[i])
+                {
+                    alert("Login Succesfull");
+                    window.open("Reservation.html","")
+                    break;
+                }
+               
+            }
+            if(i == un.length)
+            {
+                alert("Invalid Credentials");
+            }
+        }
+
+        function Register()
+        {
+            w =  window.open("regisform.html","reserve","height=500 width=1200");
+            
+        }
+    
+      </script>
+</head>
+<body bgcolor="light yellow" onload="SlideShow()">
+        
+        <form action="" method="post" name="form1">
+                <img src="WelcomePlane.jpg" width="900" height="200" alt="Aircraft" id="ss"/>
+                <font color="yellow"><marquee>AIRLINES RESERVATION SYSTEM</marquee></font>
+                <font color="red" >
+
+                    <h1>WELCOME TO ONLINE RESERVATION SYSTEM</H1>
+                    <h3>Registered Users</h3>
+                    USERNAME  <input type="text" id="uname" />  
+                    <BR><br>
+                    PASSWORD  <input type="password" id="pass"/>
+                    <BR><br>
+                    <br><input type="button" value="LOGIN" align="center" onclick="Login()"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    
+                    <label onclick="Register()">Register</label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                                              
+                    <button onclick="parent.frame2.display()">About</button>
+                    <br><br>
+                    <p id="pid"></p>
+                </font>
+               
+        </form>
+                    
+                       
+              
+</body>
+</html>
